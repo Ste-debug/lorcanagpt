@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Lorcana Card Fetcher
+  version: 1.0.0
+paths:
+  /cards:
+    get:
+      summary: Get all cards or filter by name
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          required: false
+          description: Name of the card (exact match)
+      responses:
+        '200':
+          description: List of Lorcana cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
